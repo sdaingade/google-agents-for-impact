@@ -12,8 +12,9 @@ DATASET_NAME = Config.DATASET_NAME
 MODEL = Config.MODEL
 
 # Uses Application Default Credentials for BigQuery (gcloud or service account).
-adc, _ = google.auth.default()
-bq_credentials = BigQueryCredentialsConfig(credentials=adc)
+#adc, _ = google.auth.default()
+#bq_credentials = BigQueryCredentialsConfig(credentials=adc)
+bq_credentials = BigQueryCredentialsConfig(project_id=PROJECT_ID)
 
 # Read-only tool config (blocks DDL/DML). You can change to WriteMode.ALLOWED later if needed.
 bq_tool_cfg = BigQueryToolConfig(write_mode=WriteMode.BLOCKED)
