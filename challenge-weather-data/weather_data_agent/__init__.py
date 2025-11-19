@@ -12,7 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .agent import root_agent
+#from agent import root_agent
+#__all__ = ["root_agent"]
+# Example: your_project/__init__.py
+#__version__ = "1.0.0"
+from . import agent
 
-
-__all__ = ["root_agent"]
