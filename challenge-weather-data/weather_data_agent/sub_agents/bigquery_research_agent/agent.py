@@ -4,8 +4,6 @@ from google.adk.agents import Agent
 from google.adk.tools.bigquery import BigQueryCredentialsConfig, BigQueryToolset
 from google.adk.tools.bigquery.config import BigQueryToolConfig, WriteMode
 
-#from bigquery_schema import GSOD_DS_SCHEMA, GHCND_DS_SCHEMA
-#from config import Config
 from weather_data_agent.config import Config
 from weather_data_agent.sub_agents.bigquery_research_agent.bigquery_schema import GSOD_DS_SCHEMA, GHCND_DS_SCHEMA
 

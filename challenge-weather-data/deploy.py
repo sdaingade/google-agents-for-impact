@@ -9,7 +9,6 @@ from vertexai.preview.reasoning_engines import AdkApp
 
 from weather_data_agent.agent import root_agent
 
-
 def deploy(
     project_id: str,
     location: str,
@@ -45,6 +44,8 @@ def deploy(
     logging.info(f"Agent deployed successfully. Resource name: {remote_agent.resource_name}")
     return remote_agent
 
+# From student_04_9385d4f57898@cloudshell:~/google-agents-for-impact/challenge-weather-data$
+# python deploy.py   --project-id "qwiklabs-gcp-04-a2f8b45168e3"   --staging-bucket "gs://qwiklabs-gcp-04-a2f8b45168e3-bucket"
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Deploy the weather agent to Vertex AI Agent Engine.")
     parser.add_argument("--project-id", required=True, help="Your Google Cloud project ID.")

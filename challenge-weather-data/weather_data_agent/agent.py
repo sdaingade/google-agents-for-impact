@@ -1,4 +1,3 @@
-
 import os
 import google.auth
 from google.genai import types
@@ -6,8 +5,6 @@ from google.adk.agents import Agent, LlmAgent
 from google.adk.tools import agent_tool
 import vertexai
 
-#from online_research_agent import online_research_agent
-#from bigquery_research_agent import bigquery_research_agent
 from weather_data_agent.sub_agents.bigquery_research_agent.agent import bigquery_research_agent
 from weather_data_agent.sub_agents.online_research_agent.agent import online_research_agent
 
