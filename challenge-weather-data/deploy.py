@@ -29,7 +29,7 @@ def deploy(
         description="Provides Answers to Users about Weather and Climate related disasters.",
         extra_packages=["./weather_data_agent"],
         requirements=[
-            "google-cloud-aiplatform[adk,agent_engines]==1.110.0",
+            "google-cloud-aiplatform[adk,agent_engines]",
             "vertexai>=1.0.0",
             "google-cloud-bigquery",
             "google-cloud-storage",

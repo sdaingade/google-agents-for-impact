@@ -1,9 +1,9 @@
 import google.auth
 from google.genai import types
 from google.adk.agents import Agent
-from google.adk.tools.bigquery import BigQueryCredentialsConfig, BigQueryToolset
+from google.adk.tools.bigquery import BigQueryToolset
 from google.adk.tools.bigquery.config import BigQueryToolConfig, WriteMode
-
+ 
 from weather_data_agent.config import Config
 from weather_data_agent.sub_agents.bigquery_research_agent.bigquery_schema import GSOD_DS_SCHEMA, GHCND_DS_SCHEMA
 
@@ -14,12 +14,7 @@ GHCND_DS = Config.GHCND_DS
 MODEL = Config.MODEL
 
 # Read-only tool config (blocks DDL/DML). You can change to WriteMode.ALLOWED later if needed.
-bq_tool_cfg = BigQueryToolConfig(
-    default_project_id=PROJECT_ID,
-    write_mode=WriteMode.BLOCKED,
-    default_dataset_id="bigquery-public-data",
-    table_names=["noaa_gsod.gsod*", "ghcn_d.ghcnd*"],
-)
+bq_tool_cfg = BigQueryToolConfig(write_mode=WriteMode.BLOCKED)
 
 # Instantiate the BigQuery toolset
 bq_tools = BigQueryToolset(bigquery_tool_config=bq_tool_cfg)

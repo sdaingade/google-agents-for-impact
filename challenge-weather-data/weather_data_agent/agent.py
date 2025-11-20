@@ -38,9 +38,9 @@ root_agent = Agent(
     model=MODEL,
     description="Provides Answers to Users about Weather and Climate related disasters.",
     instruction=MAIN_AGENT_INSTRUCTIONS,
-     tools=[
-         agent_tool.AgentTool(agent=online_research_agent),
-         agent_tool.AgentTool(agent=bigquery_research_agent),
-     ],
+    tools=[
+        agent_tool.AgentTool(agent=online_research_agent),
+        agent_tool.AgentTool(agent=bigquery_research_agent),
+    ],
     generate_content_config=agent_generation,
 )
