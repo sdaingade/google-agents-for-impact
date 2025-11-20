@@ -1,1 +1,7 @@
 google-cloud-aiplatform[adk,agent_engines]==1.110.0
+vertexai>=1.0.0
+google-cloud-bigquery
+google-cloud-storage
+google-cloud-aiplatform
+google-api-python-client
+google-auth-httplib2

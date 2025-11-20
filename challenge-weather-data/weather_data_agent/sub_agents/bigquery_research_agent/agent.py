@@ -4,30 +4,27 @@ from google.adk.agents import Agent
 from google.adk.tools.bigquery import BigQueryCredentialsConfig, BigQueryToolset
 from google.adk.tools.bigquery.config import BigQueryToolConfig, WriteMode
 
-from .bigquery_schema import GSOD_DS_SCHEMA, GHCND_DS_SCHEMA
-from .config import Config
+#from bigquery_schema import GSOD_DS_SCHEMA, GHCND_DS_SCHEMA
+#from config import Config
+from weather_data_agent.config import Config
+from weather_data_agent.sub_agents.bigquery_research_agent.bigquery_schema import GSOD_DS_SCHEMA, GHCND_DS_SCHEMA
+
 
 PROJECT_ID = Config.GOOGLE_CLOUD_PROJECT
 GSOD_DS = Config.GSOD_DS
 GHCND_DS = Config.GHCND_DS
 MODEL = Config.MODEL
 
-
-# Uses Application Default Credentials for BigQuery (gcloud or service account).
-adc, _ = google.auth.default()
-bq_credentials = BigQueryCredentialsConfig(credentials=adc, project_id=PROJECT_ID)
-
 # Read-only tool config (blocks DDL/DML). You can change to WriteMode.ALLOWED later if needed.
 bq_tool_cfg = BigQueryToolConfig(
     default_project_id=PROJECT_ID,
-    write_mode=WriteMode.BLOCKED
+    write_mode=WriteMode.BLOCKED,
+    default_dataset_id="bigquery-public-data",
+    table_names=["noaa_gsod.gsod*", "ghcn_d.ghcnd*"],
 )
 
 # Instantiate the BigQuery toolset
-bq_tools = BigQueryToolset(
-    credentials_config=bq_credentials,
-    bigquery_tool_config=bq_tool_cfg
-)
+bq_tools = BigQueryToolset(bigquery_tool_config=bq_tool_cfg)
 
 # Instruct the agent to **only** use your dataset
 INSTR = f"""
